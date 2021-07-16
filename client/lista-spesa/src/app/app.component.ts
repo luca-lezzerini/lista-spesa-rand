@@ -21,10 +21,18 @@ export class AppComponent {
 
   aggiungi() {
     console.log('Siamo di aggiungi');
-
+    if (this.prodotto.nome) {
+      let ox: Observable<Prodotto[]> =
+        this.http.post<Prodotto[]>("http://localhost:8080/aggiungi", this.prodotto);
+      ox.subscribe(u => this.prodotti = u);
+      this.prodotto.nome = "";
+    }
   }
 
   rimuovi(p: Prodotto) {
     console.log('Siamo in rimuovi', p);
+    let ox: Observable<Prodotto[]> =
+      this.http.post<Prodotto[]>("http://localhost:8080/rimuovi", p);
+    ox.subscribe(u => this.prodotti = u);
   }
 }

@@ -1,6 +1,7 @@
 <h1>Lista della spesa V. 2</h1>
 <input type="text" [(ngModel)]="prodotto.nome">
 <button (click)="aggiungi()">Aggiungi</button>
+<b *ngIf="!(prodotto.nome)">Campo non valido: il campo non può essere vuoto</b>
 <br>
 <h2>Prodotti da comprare</h2>
 <ul>
