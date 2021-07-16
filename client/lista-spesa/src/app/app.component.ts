@@ -1,3 +1,4 @@
+import { Prodotto } from './prodotto';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'lista-spesa';
+  prodotto: Prodotto = new Prodotto();
+  prodotti: Prodotto[] = [{ nome: "mela" }, { nome: "pane" }];
+
+  aggiungi() {
+    console.log('Siamo di aggiungi');
+
+  }
+
+  rimuovi(p: Prodotto) {
+    console.log('Siamo in rimuovi', p);
+  }
 }
